@@ -11,7 +11,7 @@ const profileContentVi = Profile(
       'Hơn 5 năm phát triển ứng dụng di động, thư viện mobile app, '
       'luôn đặt chất lượng code và chất lượng sản phẩm lên hàng đầu.',
   about: [
-    'Tôi có hơn 4 năm kinh nghiệm phát triển ứng dụng di động với Flutter '
+    'Tôi có hơn 5 năm kinh nghiệm phát triển ứng dụng di động với Flutter '
         'và 1 năm với Android Kotlin, iOS Swift. Tôi làm việc độc lập tốt, '
         'phối hợp hiệu quả trong nhóm và quen với quy trình Agile Scrum/Kanban.',
     'Tôi thường tìm hiểu sâu về framework, xây dựng các base component và '

@@ -6,11 +6,11 @@ const profileContentEn = Profile(
   role: 'Mobile Developer',
   location: 'Hanoi, Vietnam',
   tagline:
-      'Over 5 years building mobile apps/sdks, '
+      'Over 5 years building mobile apps and SDKs, '
       'always putting code quality and product quality first.',
   about: [
-    'I have over 4 years of experience in mobile app development with Flutter '
-        'and 6 months with Android Kotlin and iOS Swift. I work well '
+    'I have over 5 years of experience in mobile app development with Flutter '
+        'and 1 year with Android Kotlin and iOS Swift. I work well '
         'independently, collaborate effectively in a team, and am experienced '
         'with Agile Scrum/Kanban.',
     'I frequently delve into frameworks, develop base components, and create '
