@@ -29,6 +29,8 @@ class _PortfolioAppState extends State<PortfolioApp> {
       },
       debugShowCheckedModeBanner: false,
       theme: portfolioTheme,
+      darkTheme: portfolioDarkTheme,
+      themeMode: ThemeMode.system,
       locale: _locale,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

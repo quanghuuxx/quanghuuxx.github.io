@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -161,6 +163,45 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.widgetWithText(TextButton, 'Liên hệ'), findsOneWidget);
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('giao diện tự theo chế độ sáng/tối của hệ thống', (tester) async {
+    addTearDown(tester.platformDispatcher.clearPlatformBrightnessTestValue);
+    Color background() =>
+        tester.widget<Scaffold>(find.byType(Scaffold)).backgroundColor ??
+        Theme.of(tester.element(find.byType(Scaffold))).scaffoldBackgroundColor;
+
+    tester.platformDispatcher.platformBrightnessTestValue = Brightness.dark;
+    await tester.pumpWidget(const PortfolioApp());
+    await tester.pumpAndSettle();
+    expect(background(), portfolioDarkTheme.scaffoldBackgroundColor);
+
+    // Hệ thống đổi chế độ trong lúc đang mở trang.
+    tester.platformDispatcher.platformBrightnessTestValue = Brightness.light;
+    await tester.pumpAndSettle();
+    expect(background(), portfolioTheme.scaffoldBackgroundColor);
+  });
+
+  test('màu chữ đủ tương phản trên nền ở cả hai theme (WCAG AA)', () {
+    double contrast(Color a, Color b) {
+      final (la, lb) = (a.computeLuminance(), b.computeLuminance());
+      return (max(la, lb) + 0.05) / (min(la, lb) + 0.05);
+    }
+
+    for (final theme in [portfolioTheme, portfolioDarkTheme]) {
+      final colors = theme.colorScheme;
+      for (final text in [
+        colors.onSurface,
+        colors.onSurfaceVariant,
+        colors.primary,
+      ]) {
+        expect(contrast(text, colors.surface), greaterThanOrEqualTo(4.5));
+      }
+      expect(
+        contrast(colors.onPrimary, colors.primary),
+        greaterThanOrEqualTo(4.5),
+      );
+    }
   });
 
   testWidgets('nút chuyển ngôn ngữ đổi cả giao diện và nội dung', (

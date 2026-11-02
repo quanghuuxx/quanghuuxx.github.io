@@ -3,7 +3,6 @@ import 'package:url_launcher/link.dart';
 
 import '../../l10n/app_localizations.dart';
 import '../domain/profile.dart';
-import 'portfolio_theme.dart';
 
 const _contentMaxWidth = 960.0;
 const _wideBreakpoint = 720.0;
@@ -183,9 +182,10 @@ class _TopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return DecoratedBox(
-      decoration: const BoxDecoration(
-        border: Border(bottom: BorderSide(color: lineColor)),
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(color: colors.outlineVariant)),
       ),
       child: _Centered(
         child: SizedBox(
@@ -215,7 +215,9 @@ class _TopBar extends StatelessWidget {
               for (final item in items.entries)
                 TextButton(
                   onPressed: item.value,
-                  style: TextButton.styleFrom(foregroundColor: inkColor),
+                  style: TextButton.styleFrom(
+                    foregroundColor: colors.onSurface,
+                  ),
                   child: Text(item.key),
                 ),
               const SizedBox(width: 8),
@@ -235,6 +237,7 @@ class _LanguageSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     final current = Localizations.localeOf(context).languageCode;
 
     return Row(
@@ -247,8 +250,8 @@ class _LanguageSwitch extends StatelessWidget {
               minimumSize: const Size(40, 36),
               padding: EdgeInsets.zero,
               foregroundColor: locale.languageCode == current
-                  ? accentColor
-                  : mutedColor,
+                  ? colors.primary
+                  : colors.onSurfaceVariant,
               textStyle: TextStyle(
                 fontSize: 13,
                 fontFamily: 'BeVietnamPro',
@@ -277,6 +280,7 @@ class _Hero extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     final github = profile.contacts.where((c) => c.label == 'GitHub');
 
     return _Centered(
@@ -287,11 +291,11 @@ class _Hero extends StatelessWidget {
           children: [
             Text(
               '${profile.role} · ${profile.location}'.toUpperCase(),
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w600,
                 letterSpacing: 2,
-                color: accentColor,
+                color: colors.primary,
               ),
             ),
             const SizedBox(height: 20),
@@ -309,10 +313,10 @@ class _Hero extends StatelessWidget {
               constraints: const BoxConstraints(maxWidth: 600),
               child: Text(
                 profile.tagline,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 20,
                   height: 1.6,
-                  color: mutedColor,
+                  color: colors.onSurfaceVariant,
                 ),
               ),
             ),
@@ -338,7 +342,7 @@ class _Hero extends StatelessWidget {
                     builder: (context, followLink) => OutlinedButton(
                       onPressed: followLink,
                       style: OutlinedButton.styleFrom(
-                        foregroundColor: inkColor,
+                        foregroundColor: colors.onSurface,
                         padding: const EdgeInsets.symmetric(
                           horizontal: 24,
                           vertical: 18,
@@ -372,15 +376,16 @@ class _Section extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     final heading = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           number,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 13,
             fontWeight: FontWeight.w600,
-            color: accentColor,
+            color: colors.primary,
           ),
         ),
         const SizedBox(height: 6),
@@ -394,8 +399,8 @@ class _Section extends StatelessWidget {
     return _Centered(
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 56),
-        decoration: const BoxDecoration(
-          border: Border(top: BorderSide(color: lineColor)),
+        decoration: BoxDecoration(
+          border: Border(top: BorderSide(color: colors.outlineVariant)),
         ),
         child: isWide
             ? Row(
@@ -440,13 +445,14 @@ class _Subheading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Text(
       text,
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 13,
         fontWeight: FontWeight.w600,
         letterSpacing: 0.5,
-        color: mutedColor,
+        color: colors.onSurfaceVariant,
       ),
     );
   }
@@ -459,6 +465,7 @@ class _Skills extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -477,7 +484,7 @@ class _Skills extends StatelessWidget {
                     vertical: 6,
                   ),
                   decoration: BoxDecoration(
-                    border: Border.all(color: lineColor),
+                    border: Border.all(color: colors.outlineVariant),
                     borderRadius: BorderRadius.circular(999),
                   ),
                   child: Text(skill, style: const TextStyle(fontSize: 14)),
@@ -542,6 +549,7 @@ class _ProjectRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -556,7 +564,7 @@ class _ProjectRow extends StatelessWidget {
         const SizedBox(height: 4),
         Text(
           '${project.role} · ${project.period}',
-          style: const TextStyle(fontSize: 14, color: accentColor),
+          style: TextStyle(fontSize: 14, color: colors.primary),
         ),
         const SizedBox(height: 10),
         Text(
@@ -566,7 +574,11 @@ class _ProjectRow extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           project.technologies.join(' · '),
-          style: const TextStyle(fontSize: 13, height: 1.6, color: mutedColor),
+          style: TextStyle(
+            fontSize: 13,
+            height: 1.6,
+            color: colors.onSurfaceVariant,
+          ),
         ),
         if (project.links.isNotEmpty) ...[
           const SizedBox(height: 8),
@@ -610,6 +622,7 @@ class _Timeline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -622,7 +635,7 @@ class _Timeline extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             entry.subtitle,
-            style: const TextStyle(fontSize: 14, color: accentColor),
+            style: TextStyle(fontSize: 14, color: colors.primary),
           ),
           const SizedBox(height: 10),
           for (final detail in entry.details)
@@ -654,6 +667,7 @@ class _Contacts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Wrap(
       spacing: 12,
       runSpacing: 12,
@@ -667,7 +681,7 @@ class _Contacts extends StatelessWidget {
               icon: const Icon(Icons.arrow_outward, size: 18),
               label: Text(contact.label),
               style: OutlinedButton.styleFrom(
-                foregroundColor: inkColor,
+                foregroundColor: colors.onSurface,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 20,
                   vertical: 18,

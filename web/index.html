@@ -19,6 +19,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f5ef">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#14161a">
   <meta name="description" content="Trần Hữu Quang — Mobile Developer với hơn 4 năm kinh nghiệm Flutter. Dự án: J2ME Box, Pic Sketch, CMC C-Shield.">
 
   <!-- Open Graph -->
@@ -55,6 +58,11 @@
     #intro h1 { font-size: 40px; line-height: 1.2; margin: 0 0 16px; }
     #intro a { color: #1f4fd8; }
     #loading { color: #62656d; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #14161a; color: #eceae3; }
+      #intro a { color: #8fa8ff; }
+      #loading { color: #a2a5ad; }
+    }
   </style>
 </head>
 <body>
