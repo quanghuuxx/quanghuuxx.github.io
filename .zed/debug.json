@@ -1,0 +1,26 @@
+// Project-local debug tasks
+//
+// For more documentation on how to configure debug tasks,
+// see: https://zed.dev/docs/debugger
+[
+  {
+    "label": "Web Debug",
+    "request": "launch",
+    "adapter": "Dart",
+    "type": "flutter",
+    "useFvm": true,
+    "flutterMode": "debug",
+    "program": "lib/main.dart",
+    "deviceId": "chrome"
+  },
+  {
+    "label": "Web Release",
+    "request": "launch",
+    "adapter": "Dart",
+    "type": "flutter",
+    "useFvm": true,
+    "flutterMode": "release",
+    "program": "lib/main.dart",
+    "deviceId": "chrome"
+  }
+]

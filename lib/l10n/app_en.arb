@@ -1,0 +1,20 @@
+{
+  "@@locale": "en",
+  "sectionAbout": "About",
+  "sectionSkills": "Skills",
+  "sectionProjects": "Projects",
+  "sectionExperience": "Experience",
+  "sectionEducation": "Education",
+  "sectionContact": "Contact",
+  "heroGreeting": "Hi, I'm\n{name}.",
+  "@heroGreeting": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "viewProjects": "View projects",
+  "personalProjects": "Personal projects",
+  "companyProjects": "Company projects"
+}

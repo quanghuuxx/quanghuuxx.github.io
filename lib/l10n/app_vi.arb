@@ -1,0 +1,13 @@
+{
+  "@@locale": "vi",
+  "sectionAbout": "Giới thiệu",
+  "sectionSkills": "Kỹ năng",
+  "sectionProjects": "Dự án",
+  "sectionExperience": "Kinh nghiệm",
+  "sectionEducation": "Học vấn",
+  "sectionContact": "Liên hệ",
+  "heroGreeting": "Xin chào, tôi là\n{name}.",
+  "viewProjects": "Xem dự án",
+  "personalProjects": "Dự án cá nhân",
+  "companyProjects": "Dự án tại công ty"
+}

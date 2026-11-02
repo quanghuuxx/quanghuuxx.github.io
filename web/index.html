@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Trần Hữu Quang — Mobile Developer với hơn 4 năm kinh nghiệm Flutter. Dự án: J2ME Box, Pic Sketch, CMC C-Shield.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://quanghuuxx.github.io/">
+  <meta property="og:title" content="Trần Hữu Quang — Mobile Developer">
+  <meta property="og:description" content="Mobile Developer với hơn 4 năm kinh nghiệm Flutter.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Trần Hữu Quang">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Trần Hữu Quang — Mobile Developer</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {
+      margin: 0;
+      background: #f7f5ef;
+      color: #17191e;
+      font-family: system-ui, sans-serif;
+    }
+    #intro {
+      max-width: 912px;
+      margin: 0 auto;
+      padding: 96px 24px;
+      line-height: 1.6;
+    }
+    #intro h1 { font-size: 40px; line-height: 1.2; margin: 0 0 16px; }
+    #intro a { color: #1f4fd8; }
+    #loading { color: #62656d; }
+  </style>
+</head>
+<body>
+  <!--
+    Bản HTML thuần: hiện trong lúc Flutter tải, đồng thời cho công cụ tìm kiếm
+    đọc được nội dung. Nhớ cập nhật khi sửa lib/portfolio/content/profile_content_vi.dart.
+  -->
+  <main id="intro">
+    <h1>Xin chào, tôi là Trần Hữu Quang.</h1>
+    <p>Mobile Developer với hơn 4 năm phát triển ứng dụng di động bằng Flutter, luôn đặt chất lượng code và chất lượng sản phẩm lên hàng đầu.</p>
+    <h2>Dự án cá nhân</h2>
+    <ul>
+      <li><a href="https://play.google.com/store/apps/details?id=vn.quanghuuxx.j2me_box">J2ME Box</a> — ứng dụng Android giả lập để chạy J2ME, MIDlet</li>
+      <li><a href="https://play.google.com/store/apps/details?id=vn.quanghuuxx.pic_sketch">Pic Sketch</a> — ứng dụng chỉnh sửa ảnh</li>
+    </ul>
+    <p><a href="https://github.com/quanghuuxx">GitHub</a> · <a href="mailto:quanghuuxx@gmail.com">Email</a></p>
+    <p id="loading">Đang tải…</p>
+    <noscript>Bật JavaScript để xem phiên bản đầy đủ của trang.</noscript>
+  </main>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      document.getElementById('intro').remove();
+    });
+  </script>
+  <!--
+    You can customize the "flutter_bootstrap.js" script.
+    This is useful to provide a custom configuration to the Flutter loader
+    or to give the user feedback during the initialization process.
+
+    For more details:
+    * https://docs.flutter.dev/platform-integration/web/initialization
+  -->
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
