@@ -6,7 +6,7 @@ const profileContentEn = Profile(
   role: 'Mobile Developer',
   location: 'Hanoi, Vietnam',
   tagline:
-      'Over 4 years building mobile apps with Flutter, '
+      'Over 5 years building mobile apps/sdks, '
       'always putting code quality and product quality first.',
   about: [
     'I have over 4 years of experience in mobile app development with Flutter '

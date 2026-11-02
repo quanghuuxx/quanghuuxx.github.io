@@ -49,6 +49,22 @@
       color: #17191e;
       font-family: system-ui, sans-serif;
     }
+    #loading {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 40px;
+      height: 40px;
+      margin: -20px 0 0 -20px;
+      box-sizing: border-box;
+      border: 3px solid #d9d6cc;
+      border-top-color: #1f4fd8;
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
     #intro {
       max-width: 912px;
       margin: 0 auto;
@@ -57,34 +73,39 @@
     }
     #intro h1 { font-size: 40px; line-height: 1.2; margin: 0 0 16px; }
     #intro a { color: #1f4fd8; }
-    #loading { color: #62656d; }
     @media (prefers-color-scheme: dark) {
       body { background: #14161a; color: #eceae3; }
+      #loading { border-color: #33363d; border-top-color: #8fa8ff; }
       #intro a { color: #8fa8ff; }
-      #loading { color: #a2a5ad; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #loading { animation-duration: 3s; }
     }
   </style>
 </head>
 <body>
+  <div id="loading" role="status" aria-label="Đang tải"></div>
   <!--
-    Bản HTML thuần: hiện trong lúc Flutter tải, đồng thời cho công cụ tìm kiếm
-    đọc được nội dung. Nhớ cập nhật khi sửa lib/portfolio/content/profile_content_vi.dart.
+    Bản HTML thuần cho trình duyệt không chạy JavaScript và công cụ tìm kiếm.
+    Nhớ cập nhật khi sửa lib/portfolio/content/profile_content_vi.dart.
   -->
-  <main id="intro">
-    <h1>Xin chào, tôi là Trần Hữu Quang.</h1>
-    <p>Mobile Developer với hơn 4 năm phát triển ứng dụng di động bằng Flutter, luôn đặt chất lượng code và chất lượng sản phẩm lên hàng đầu.</p>
-    <h2>Dự án cá nhân</h2>
-    <ul>
-      <li><a href="https://play.google.com/store/apps/details?id=vn.quanghuuxx.j2me_box">J2ME Box</a> — ứng dụng Android giả lập để chạy J2ME, MIDlet</li>
-      <li><a href="https://play.google.com/store/apps/details?id=vn.quanghuuxx.pic_sketch">Pic Sketch</a> — ứng dụng chỉnh sửa ảnh</li>
-    </ul>
-    <p><a href="https://github.com/quanghuuxx">GitHub</a> · <a href="mailto:quanghuuxx@gmail.com">Email</a></p>
-    <p id="loading">Đang tải…</p>
-    <noscript>Bật JavaScript để xem phiên bản đầy đủ của trang.</noscript>
-  </main>
+  <noscript>
+    <style>#loading { display: none; }</style>
+    <main id="intro">
+      <h1>Xin chào, tôi là Trần Hữu Quang.</h1>
+      <p>Mobile Developer với hơn 4 năm phát triển ứng dụng di động bằng Flutter, luôn đặt chất lượng code và chất lượng sản phẩm lên hàng đầu.</p>
+      <h2>Dự án cá nhân</h2>
+      <ul>
+        <li><a href="https://play.google.com/store/apps/details?id=vn.quanghuuxx.j2me_box">J2ME Box</a> — ứng dụng Android giả lập để chạy J2ME, MIDlet</li>
+        <li><a href="https://play.google.com/store/apps/details?id=vn.quanghuuxx.pic_sketch">Pic Sketch</a> — ứng dụng chỉnh sửa ảnh</li>
+      </ul>
+      <p><a href="https://github.com/quanghuuxx">GitHub</a> · <a href="mailto:quanghuuxx@gmail.com">Email</a></p>
+      <p>Bật JavaScript để xem phiên bản đầy đủ của trang.</p>
+    </main>
+  </noscript>
   <script>
     window.addEventListener('flutter-first-frame', function () {
-      document.getElementById('intro').remove();
+      document.getElementById('loading').remove();
     });
   </script>
   <!--
